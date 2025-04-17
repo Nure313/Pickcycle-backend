@@ -4,7 +4,7 @@ session_start();
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     // Your database connection code goes here
     // Replace the following placeholders with your actual database credentials
@@ -18,19 +18,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    // SQL query to check if the username and password exist in the database
-    $sql = "SELECT * FROM sign_up WHERE username='$username' AND password='$password'";
+    // SQL query to check if the email and password exist in the database
+    $sql = "SELECT * FROM sign_up WHERE email='$email' AND password='$password'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         // User authenticated successfully
         // Set session variables
-        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
         // Redirect to the dashboard or another page
         header("Location: home.html");
         exit();
     } else {
-        // Invalid username or password
-        echo "Invalid username or password";
+        // Invalid email or password
+        echo "Invalid email or password";
     }
     $conn->close();
 }

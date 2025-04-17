@@ -1,30 +1,51 @@
 <?php
-// Step 2: Connect to the database
-$servername = "localhost"; // Change this if your database is hosted elsewhere
-$username = "root"; // Replace with your actual username
-$password = ""; // Replace with your actual password
-$dbname = "pickcycle"; // Replace with your actual database name
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
+// Database connection
+$conn = new mysqli("localhost", "root", "", "pickcycle");
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
-// Step 3: Retrieve form data
-$name = $_POST['name'];
-$address = $_POST['address'];
-$phone = $_POST['phone'];
-$product = $_POST['product'];
-$quantity = $_POST['quantity'];
 
-// Step 4: Insert form data into the database
-$sql = "INSERT INTO recycle (name, address, phone, product_type, quantity) VALUES ('$name', '$address', '$phone', '$product', '$quantity')";
+// Check if the required columns exist in the table
+$requiredColumns = ['name', 'address', 'phone', 'product_type', 'quantity'];
+$columnsQuery = "SHOW COLUMNS FROM recycle";
+$columnsResult = $conn->query($columnsQuery);
 
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+if ($columnsResult) {
+    $existingColumns = [];
+    while ($row = $columnsResult->fetch_assoc()) {
+        $existingColumns[] = $row['Field'];
+    }
+
+    foreach ($requiredColumns as $column) {
+        if (!in_array($column, $existingColumns)) {
+            die("Error: Missing column '$column' in the 'recycle' table.");
+        }
+    }
 }
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if all required fields are set
+    if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['phone']) && !empty($_POST['product_type']) && !empty($_POST['quantity'])) {
+        $name = $conn->real_escape_string($_POST['name']);
+        $address = $conn->real_escape_string($_POST['address']);
+        $phone = $conn->real_escape_string($_POST['phone']);
+        $product_type = $conn->real_escape_string($_POST['product_type']); // Ensure product_type is properly retrieved
+        $quantity = (int)$_POST['quantity'];
+
+        // Insert data into the database
+        $sql = "INSERT INTO recycle (name, address, phone, product_type, quantity) VALUES ('$name', '$address', '$phone', '$product_type', $quantity)";
+        if ($conn->query($sql) === TRUE) {
+            echo "Submission successful. <a href='recycle.html'>Go back</a>";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    } else {
+        echo "Error: Missing required fields.";
+    }
+}
+
 $conn->close();
 ?>
 
@@ -35,5 +56,5 @@ $conn->close();
 
 
 
- 
+
 

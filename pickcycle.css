@@ -200,16 +200,16 @@ option{
     transition:  transform 0.5s;
 }
 .card1{
-    background-image: url(images/p1.jpg);
+    background-image: url(images/ppp5.jpg);
 }
 .card2{
-    background-image: url(images/p3.jpg);
+    background-image: url(images/ppp11.jpg);
 }
 .card3{
-    background-image: url(images/p2.jpg);
+    background-image: url(images/ppp4.jpg);
 }
 .card4{
-    background-image: url(images/p4.jpg);
+    background-image: url(images/ppp9.jpg);
 }
 .card:hover{
     transform:translateY(-10px);

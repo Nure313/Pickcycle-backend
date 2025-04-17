@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="pickcycle.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; /* Set the font for the entire page */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f8fb; /* Light background color for the page */
+        }
+        header {
+            background-color: #1a3d2f; /* Dark green background for the header */
+            padding: 30px 20px;
+        }
+        header nav ul {
+            list-style: none; /* Remove bullet points from the navigation list */
+            padding: 0;
+            display: flex; /* Display navigation items in a row */
+            gap: 15px; /* Add spacing between navigation items */
+        }
+        header nav ul li a {
+            color: white; /* Set navigation link text color to white */
+            text-decoration: none; /* Remove underline from links */
+            font-weight: bold; /* Make navigation links bold */
+        }
+        .login-container {
+            max-width: 400px; /* Set maximum width for the login form container */
+            margin: 50px auto; /* Center the container horizontally and add vertical spacing */
+            padding: 20px;
+            background-color: #ffffff; /* White background for the login form */
+            border-radius: 10px; /* Rounded corners for the container */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for depth */
+        }
+        .login-container h1 {
+            text-align: center; /* Center the heading text */
+            color: #1a3d2f; /* Dark green color for the heading */
+            margin-bottom: 20px; /* Add spacing below the heading */
+        }
+        .login-container label {
+            display: block; /* Ensure labels are displayed on their own line */
+            margin-bottom: 5px; /* Add spacing below labels */
+            font-weight: bold; /* Make label text bold */
+            color: #333; /* Dark gray color for labels */
+        }
+        .login-container input[type="text"], .login-container input[type="password"] {
+            width: 100%; /* Make input fields take up the full width of the container */
+            padding: 10px; /* Add padding inside input fields */
+            margin-bottom: 15px; /* Add spacing below input fields */
+            border: 1px solid #ccc; /* Light gray border for input fields */
+            border-radius: 5px; /* Rounded corners for input fields */
+            font-size: 1em; /* Set font size for input fields */
+        }
+        .login-container button {
+            display: block; /* Ensure the button is displayed on its own line */
+            width: 100%; /* Make the button take up the full width of the container */
+            padding: 10px; /* Add padding inside the button */
+            background-color: #1a3d2f; /* Dark green background for the button */
+            color: white; /* White text color for the button */
+            border: none; /* Remove border from the button */
+            border-radius: 5px; /* Rounded corners for the button */
+            font-size: 1.2em; /* Increase font size for the button text */
+            cursor: pointer; /* Change cursor to pointer on hover */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+        .login-container button:hover {
+            background-color: #145a3b; /* Darker green background on hover */
+        }
+        .login-container p {
+            text-align: center; /* Center the error message text */
+            color: red; /* Red color for the error message */
+            font-weight: bold; /* Make the error message bold */
+            margin-top: 10px; /* Add spacing above the error message */
+        }
+    </style>
+</head>
+<body>
+    
+    <main>
+        <div class="login-container">
+            <h1>Sign In</h1> <!-- Heading for the login form -->
+            <form action="admin_dashboard.php" method="POST"> <!-- Form submission to admin_dashboard.php -->
+                <label for="username">Username:</label> <!-- Label for the username field -->
+                <input type="text" id="username" name="username" required> <!-- Username input field -->
+
+                <label for="password">Password:</label> <!-- Label for the password field -->
+                <input type="password" id="password" name="password" required> <!-- Password input field -->
+
+                <button type="submit">SIGN IN</button> <!-- Submit button for the form -->
+            </form>
+            <?php 
+            // Display error message only if the 'error' parameter is set in the URL
+            if (isset($_GET['error']) && $_GET['error'] == 1) {
+                echo "<p>Invalid username or password.</p>"; 
+            } 
+            ?>
+        </div>
+    </main>
+</body>
+</html>

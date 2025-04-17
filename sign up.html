@@ -9,6 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a044e42615.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="pickcycle.css">
+    <style>
+        .form-control label {
+            color: black; 
+        }
+        .form-control input {
+            color: black; 
+        }
+    </style>
 </head>
 <body>
     <!--NAVBAR SECTION-->
@@ -17,17 +25,20 @@
         <div class="navbar-links">
             <ul>
                 <li><a href="home.html" target="_blank">Home</a></li>
-                <li><a href="event.html" target="_blank">event</a></li>
-                <li><a href="recycle.html" target="_blank">recycle</a></li>
-                <li><a href="sign in.html" target="_blank">sign in</a></li>
-                <li><a href="sign up.html" target="_blank">sign up</a></li>
+                <li><a href="event.html" target="_blank">Event</a></li>
+                <li><a href="recycle.html" target="_blank">Recycle</a></li>
+                <li><a href="sign in.html" target="_blank">Sign In</a></li>
+                <li><a href="sign up.html" target="_blank">Sign Up</a></li>
+                <li><a href="admin_login.php" target="_blank">Admin Login</a></li>
+                <li><a href="admin_signup.php" target="_blank">Admin Sign Up</a></li>
+                <li><a href="admin_logout.php" target="_blank">Admin Logout</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </div>
     </nav>
     <div class="container1">
         <form action="signup_process.php" method="post">
-            <h2>create account</h2>
+            <h2>Create Account</h2>
             <div class="form-control">
                 <label for="username">username</label>
                 <input type="text" id="username" placeholder="username" name="username" required>

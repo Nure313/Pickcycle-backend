@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="pickcycle.css">
+    <style>
+        /* Style for the sign-in form */
+        .sign-in-form {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 400px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .sign-in-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-family: 'Inter', sans-serif;
+        }
+        .sign-in-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .sign-in-form input[type="email"], .sign-in-form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            font-family: 'Inter', sans-serif;
+        }
+        .sign-in-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .sign-in-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<!--NAVBAR SECTION-->
+<nav class="navbar">
+    <div class="logo">Recycle.</div>
+    <div class="navbar-links">
+        <ul>
+            <li><a href="home.html" target="_blank">Home</a></li>
+            <li><a href="event.html" target="_blank">Event</a></li>
+            <li><a href="recycle.html" target="_blank">Recycle</a></li>
+            <li><a href="sign in.html" target="_blank">Sign In</a></li>
+            <li><a href="sign up.html" target="_blank">Sign Up</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<!-- Sign In Form -->
+<div class="sign-in-form">
+    <h2>Sign In</h2>
+    <form action="signin_process.php" method="POST">
+        <label for="username">User Name:</label>
+        <input type="text" id="email" name="username" placeholder="Enter your username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+        <button type="submit">Sign In</button>
+    </form>
+    <?php 
+    // Display error message if 'error' parameter is set
+    if (isset($_GET['error']) && $_GET['error'] == 1) {
+        echo "<p style='color: red; text-align: center;'>Invalid Username or password.</p>";
+    }
+    ?>
+</div>
+<!--FOOTER-->
+<div class="footer">
+    <div class="footer-section">
+        <h3>About Us</h3>
+        <p>In an modern era the PickCycle online recycle bin is a website that helps people recycle and care 
+            for the environment. This system provides a user-friendly interface for individuals to manage 
+            recyclable items effectively.. Users can record what they want to recycle, learn about recycling 
+            events, and take steps toward a cleaner planet. The platform aims to bridge the gap between waste 
+            generation and recycling, fostering a culture of environmental responsibility and awareness.</p>
+        <div class="copyright">
+            <p>&copy; 2025 Noor. All rights reserved.</p>
+        </div>
+    </div>
+    <div class="footer-section">
+        <h3>Contact Us</h3>
+        <ul>
+            <li>Phone: (123) 456-7890</li>
+            <li>Email: noor@diu.bd</li>
+            <li>Location: 123 Dhaka, Ashulia</li>
+        </ul>
+    </div>
+    <div class="footer-section">
+        <h3>Follow Us</h3>
+        <div class="icon2">
+            <a href="#" class="social-icon2">
+                <i class="fa fa-brands fa-facebook"></i>
+            </a>
+            <a href="#" class="social-icon2">
+                <i class="fa fa-brands fa-twitter"></i>
+            </a>
+            <a href="#" class="social-icon2">
+                <i class="fa fa-brands fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

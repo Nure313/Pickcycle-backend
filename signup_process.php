@@ -1,28 +1,37 @@
 <?php
 // Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+if (isset($_SERVER["REQUEST_METHOD"]) && $_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sanitize user inputs
+    $username = htmlspecialchars(trim($_POST['username']));
+    $email = htmlspecialchars(trim($_POST['email']));
+    $password = htmlspecialchars(trim($_POST['password']));
+
     // Database connection
-    $servername = "localhost"; // Change this if your database is hosted elsewhere
-    $db_username = "root"; // Change this to your database username
-    $db_password = ""; // Change this to your database password
-    $dbname = "pickcycle"; // Your database name
-    // Create connection
+    $servername = "localhost";
+    $db_username = "root";
+    $db_password = "";
+    $dbname = "pickcycle";
+
     $conn = new mysqli($servername, $db_username, $db_password, $dbname);
+
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
-    // SQL query to insert data into the database
-    $sql = "INSERT INTO sign_up (username, email, password) VALUES ('$username', '$email', '$password')";
-    if ($conn->query($sql) === TRUE) {
+
+    // Prepared statement to prevent SQL injection
+    $stmt = $conn->prepare("INSERT INTO sign_up (username, email, password) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $username, $email, $password);
+
+    if ($stmt->execute()) {
         echo "Sign up successful";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $stmt->error;
     }
+
+    $stmt->close();
     $conn->close();
+} else {
+    echo "Invalid request method.";
 }
 ?>
