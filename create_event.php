@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $location = $_POST['location'];
     $time = $_POST['time'];
 
-    // Insert event into the database
+   
     $sql = "INSERT INTO events (title, date, topic, location, time) VALUES ('$title', '$date', '$topic', '$location', '$time')";
 
     if ($conn->query($sql) === TRUE) {
