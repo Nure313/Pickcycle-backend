@@ -21,7 +21,7 @@ if ($tableCheckResult->num_rows == 0) {
 
 // Handle event deletion
 if (isset($_GET['delete'])) {
-    $id = (int)$_GET['delete']; // Cast to integer to prevent SQL injection
+    $id = (int)$_GET['delete'];
     if (!$conn->query("DELETE FROM events WHERE id=$id")) {
         echo "<p>Error deleting event: " . $conn->error . "</p>";
     } else {
@@ -92,13 +92,13 @@ if (!$result) {
     <header>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li> <!-- Link to the home page -->
-                <li><a href="create_event.php">Event</a></li> <!-- Link to the create event page -->
-                <li><a href="recycle.html">Recycle</a></li> <!-- Link to the recycle page -->
-                <li><a href="admin.html">Sign In</a></li> <!-- Link to the admin sign-in page -->
-                <li><a href="admin_signup.php">Sign Up</a></li> <!-- Link to the admin sign-up page -->
-                <li><a href="view_submissions.php">View participants</a></li> <!-- Link to the view submissions page -->
-                <li><a href="admin_logout.php">Logout</a></li> <!-- Link to the admin logout page -->
+                <li><a href="home.html">Home</a></li> 
+                <li><a href="create_event.php">Event</a></li> 
+                <li><a href="recycle.html">Recycle</a></li> 
+                <li><a href="admin.html">Sign In</a></li> 
+                <li><a href="admin_signup.php">Sign Up</a></li> 
+                <li><a href="view_submissions.php">View participants</a></li>
+                <li><a href="admin_logout.php">Logout</a></li>
             </ul>
         </nav>
     </header>

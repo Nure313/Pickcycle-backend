@@ -7,8 +7,7 @@ if ($conn->connect_error) {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Secure password hashing
-
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     // Insert new admin into the database
     $sql = "INSERT INTO admins (username, password) VALUES ('$username', '$password')";
     if ($conn->query($sql) === TRUE) {
@@ -32,53 +31,53 @@ $conn->close();
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f8fb; /* Light background color */
+            background-color: #f4f8fb; 
         }
         .container {
             max-width: 400px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #ffffff; /* White background for the signup form */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            background-color: #ffffff; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
         }
         h1 {
             text-align: center;
-            color: #1a3d2f; /* Dark green color for the heading */
+            color: #1a3d2f; 
             margin-bottom: 20px;
         }
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: #333; /* Dark gray color for labels */
+            color: #333;
         }
         input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #ccc; /* Light gray border */
-            border-radius: 5px; /* Rounded corners */
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
             font-size: 1em;
         }
         button {
             display: block;
             width: 100%;
             padding: 10px;
-            background-color: #1a3d2f; /* Dark green background */
+            background-color: #1a3d2f; 
             color: white;
             border: none;
-            border-radius: 5px; /* Rounded corners */
+            border-radius: 5px;
             font-size: 1.2em;
             cursor: pointer;
-            transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+            transition: background-color 0.3s ease; 
         }
         button:hover {
-            background-color: #145a3b; /* Darker green on hover */
+            background-color: #145a3b; 
         }
         p {
             text-align: center;
-            color: red; /* Red color for error messages */
+            color: red; 
             font-weight: bold;
             margin-top: 10px;
         }

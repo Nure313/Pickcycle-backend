@@ -103,7 +103,7 @@ $conn->close();
     </style>
 </head>
 <body>
-    <a href="view_events.php" class="view-events-link">View Events</a> <!-- Link to view events -->
+    <a href="view_events.php" class="view-events-link">View Events</a> 
     <div class="container">
         <h1>Create Event</h1>
         <form action="create_event.php" method="POST">

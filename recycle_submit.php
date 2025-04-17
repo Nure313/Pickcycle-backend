@@ -26,15 +26,15 @@ if ($columnsResult) {
 
 // Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Check if all required fields are set
+    
     if (!empty($_POST['name']) && !empty($_POST['address']) && !empty($_POST['phone']) && !empty($_POST['product_type']) && !empty($_POST['quantity'])) {
         $name = $conn->real_escape_string($_POST['name']);
         $address = $conn->real_escape_string($_POST['address']);
         $phone = $conn->real_escape_string($_POST['phone']);
-        $product_type = $conn->real_escape_string($_POST['product_type']); // Ensure product_type is properly retrieved
+        $product_type = $conn->real_escape_string($_POST['product_type']);
         $quantity = (int)$_POST['quantity'];
 
-        // Insert data into the database
+      
         $sql = "INSERT INTO recycle (name, address, phone, product_type, quantity) VALUES ('$name', '$address', '$phone', '$product_type', $quantity)";
         if ($conn->query($sql) === TRUE) {
             echo "Submission successful. <a href='recycle.html'>Go back</a>";
