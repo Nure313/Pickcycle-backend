@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($sql) === TRUE) {
         echo "User registered successfully!";
-        header("Location: sign_in.html"); // Redirect to sign-in page
+        header("Location: sign_in.html"); 
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
