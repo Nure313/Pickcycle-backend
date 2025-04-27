@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $conn->real_escape_string($_POST['email']);
     $message = $conn->real_escape_string($_POST['message']);
 
-   
+
     $sql = "INSERT INTO user_submissions (name, email, message) VALUES ('$name', '$email', '$message')";
 
     if ($conn->query($sql) === TRUE) {
