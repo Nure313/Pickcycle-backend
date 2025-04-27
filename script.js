@@ -45,7 +45,7 @@ function updateComment(commentId, updatedComment) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            fetchComments(); // Refresh comments after updating
+            fetchComments(); 
         }
     };
     xhr.send("comment_id=" + commentId + "&updated_comment=" + updatedComment);
@@ -57,7 +57,7 @@ function deleteComment(commentId) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            fetchComments(); // Refresh comments after deleting
+            fetchComments(); 
         }
     };
     xhr.send("comment_id=" + commentId);
@@ -76,7 +76,7 @@ document.querySelector(".comment-box form").addEventListener("submit", function 
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            fetchComments(); // Refresh comments after posting
+            fetchComments(); 
             document.getElementById("username").value = "";
             document.getElementById("comment").value = "";
         }

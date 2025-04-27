@@ -38,15 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f8fb; 
+            background-color: #f4f8fb;
         }
         .container {
             max-width: 400px;
             margin: 50px auto;
             padding: 20px;
-            background-color: #ffffff; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
@@ -57,14 +57,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
-            color: #333; 
+            color: #333;
         }
         input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
-            border: 1px solid #ccc; 
-            border-radius: 5px; 
+            border: 1px solid #ccc;
+            border-radius: 5px;
             font-size: 1em;
         }
         button {
@@ -77,14 +77,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             border-radius: 5px;
             font-size: 1.2em;
             cursor: pointer;
-            transition: background-color 0.3s ease; 
+            transition: background-color 0.3s ease;
         }
         button:hover {
             background-color: #145a3b;
         }
         p {
             text-align: center;
-            color: red; 
+            color: red;
             font-weight: bold;
             margin-top: 10px;
         }
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h1>Admin Login</h1>
         <form action="admin_login.php" method="POST">
-            <label for="username">Username:</label>
+            <label for="username">Email</label>
             <input type="text" id="username" name="username" required>
 
             <label for="password">Password:</label>

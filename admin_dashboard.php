@@ -92,11 +92,11 @@ if (!$result) {
     <header>
         <nav>
             <ul>
-                <li><a href="home.html">Home</a></li> 
-                <li><a href="create_event.php">Event</a></li> 
-                <li><a href="recycle.html">Recycle</a></li> 
-                <li><a href="admin.html">Sign In</a></li> 
-                <li><a href="admin_signup.php">Sign Up</a></li> 
+                <li><a href="home.html">Home</a></li>
+                <li><a href="create_event.php">Event</a></li>
+                <li><a href="recycle.html">Recycle</a></li>
+                <li><a href="admin.html">Sign In</a></li>
+                <li><a href="admin_signup.php">Sign Up</a></li>
                 <li><a href="view_submissions.php">View participants</a></li>
                 <li><a href="admin_logout.php">Logout</a></li>
             </ul>

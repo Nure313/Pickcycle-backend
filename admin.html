@@ -7,95 +7,90 @@
     <link rel="stylesheet" href="pickcycle.css">
     <style>
         body {
-            font-family: 'Inter', sans-serif; 
+            font-family: 'Inter', sans-serif;
             padding: 0;
-            background-color: #f4f8fb; 
+            background-color: #f4f8fb;
         }
         header {
-            background-color: #1a3d2f; 
+            background-color: #1a3d2f;
             padding: 30px 20px;
         }
         header nav ul {
-            list-style: none; 
+            list-style: none;
             padding: 0;
-            display: flex; 
-            gap: 15px; 
+            display: flex;
+            gap: 15px;
         }
         header nav ul li a {
-            color: white; 
-            text-decoration: none; 
-            font-weight: bold; 
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
         }
         .login-container {
-            max-width: 400px; 
-            margin: 50px auto; 
+            max-width: 400px;
+            margin: 50px auto;
             padding: 20px;
-            background-color: #ffffff; 
-            border-radius: 10px; 
+            background-color: #ffffff;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .login-container h1 {
-            text-align: center; 
-            color: #1a3d2f; 
-            margin-bottom: 20px; 
+            text-align: center;
+            color: #1a3d2f;
+            margin-bottom: 20px;
         }
         .login-container label {
-            display: block; 
-            margin-bottom: 5px; 
-            font-weight: bold; 
-            color: #333; 
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
         }
         .login-container input[type="text"], .login-container input[type="password"] {
-            width: 100%; 
-            padding: 10px; 
-            margin-bottom: 15px; 
-            border: 1px solid #ccc; 
-            border-radius: 5px; 
-            font-size: 1em; 
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
         }
         .login-container button {
-            display: block; 
-            width: 100%; 
-            padding: 10px; 
-            background-color: #1a3d2f; 
-            color: white; 
-            border: none; 
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #1a3d2f;
+            color: white;
+            border: none;
             border-radius: 5px;
-            font-size: 1.2em; 
-            cursor: pointer; 
-            transition: background-color 0.3s ease; 
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
         .login-container button:hover {
-            background-color: #145a3b; 
+            background-color: #145a3b;
         }
         .login-container p {
-            text-align: center; 
-            color: red; 
-            font-weight: bold; 
-            margin-top: 10px; 
+            text-align: center;
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
-    
+
     <main>
         <div class="login-container">
-            <h1>Sign In</h1> 
-            <form action="admin_dashboard.php" method="POST"> 
-                <label for="username">Username:</label> 
-                <input type="text" id="username" name="username" required> 
+            <h1>Sign In</h1>
+            <form action="admin_dashboard.php" method="POST">
+                <label for="username">Email</label>
+                <input type="text" id="username" name="username" required>
 
-                <label for="password">Password:</label> 
-                <input type="password" id="password" name="password" required> 
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
 
-                <button type="submit">SIGN IN</button> 
+                <button type="submit">SIGN IN</button>
             </form>
-            <?php 
-            // Display error message only if the 'error' parameter is set in the URL
-            if (isset($_GET['error']) && $_GET['error'] == 1) {
-                echo "<p>Invalid username or password.</p>"; 
-            } 
-            ?>
+           
         </div>
     </main>
 </body>
